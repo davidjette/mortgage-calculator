@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mortgage Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Mortgage Calculator</h1>
+    
+    <div class="input-container">
+      <label for="loanAmount">Loan Amount:</label>
+      <input type="range" id="loanAmount" min="0" max="1000000" step="1000">
+      <output id="loanAmountOutput"></output>
+    </div>
+
+    <div class="input-container">
+      <label for="interestRate">Interest Rate (%):</label>
+      <input type="range" id="interestRate" min="0" max="20" step="0.1">
+      <output id="interestRateOutput"></output>
+    </div>
+
+    <div class="input-container">
+      <label for="loanTerm">Loan Term (Years):</label>
+      <input type="range" id="loanTerm" min="1" max="30" step="1">
+      <output id="loanTermOutput"></output>
+    </div>
+
+    <button id="calculateBtn">Calculate</button>
+
+    <div class="result">
+      <p>Estimated Payoff Amount: <span id="payoffAmount"></span></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
