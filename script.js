@@ -20,19 +20,16 @@ function updateLoanTerm() {
 }
 
 function calculateMortgage() {
-  const principal = parseFloat(loanAmountSlider.value);
-  const annualInterestRate = parseFloat(interestRateSlider.value) / 100;
-  const monthlyInterestRate = annualInterestRate / 12;
-  const loanTermInMonths = parseInt(loanTermSlider.value) * 12;
-
-  const numerator = principal * monthlyInterestRate * Math.pow((1 + monthlyInterestRate), loanTermInMonths);
-  const denominator = Math.pow((1 + monthlyInterestRate), loanTermInMonths) - 1;
-
-  const monthlyPayment = numerator / denominator;
-  const payoff = monthlyPayment * loanTermInMonths;
-
-  payoffAmount.innerText = `$${payoff.toFixed(2)}`;
-}
+    const principal = parseFloat(loanAmountSlider.value);
+    const annualInterestRate = parseFloat(interestRateSlider.value) / 100;
+    const loanTermInYears = parseInt(loanTermSlider.value);
+  
+    const interestPaid = principal * annualInterestRate * loanTermInYears;
+    const payoff = principal + interestPaid;
+  
+    payoffAmount.innerText = `$${payoff.toFixed(2)}`;
+  }
+  
 
 loanAmountSlider.addEventListener('input', updateLoanAmount);
 interestRateSlider.addEventListener('input', updateInterestRate);
